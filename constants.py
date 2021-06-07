@@ -24,8 +24,8 @@ class CaseLocators:
     GIFT_CARDS_ALL = (By.XPATH, '//*[@id="nav-xshop"]/a[text()[contains(.,"Gift Cards")]]')
     GIFT_EGIFT_CATEGORY = (By.ID, 'a-autoid-0-announce')
     GIFT_CARDS_BIRTHDAY = (By.XPATH, '//a[@aria-label="Birthday Gift Cards"]')
-    CARD_BIRTHDAY_CARD = (By.XPATH, '//*[@id="search"]//div[@data-index="0"]')
-    CARD_STANDARD_DESIGN = (By.XPATH, '//*[@id="gc-design-mini-picker-customizationTypes"]//'
+    GIFT_BIRTHDAY_CARD = (By.XPATH, '//*[@id="search"]//div[@data-index="0"]')
+    GIFT_STANDARD_DESIGN = (By.XPATH, '//*[@id="gc-design-mini-picker-customizationTypes"]//'
                                       'button[@id="gc-customization-type-button-Designs"]')
     CARD_DESIGN_MORE = (By.ID, 'gc-detail-design-more-link')
     CARD_PARTY_ANIMALS_DESIGN = (By.XPATH, f'//*[@id="gc-picker-designs"]//'

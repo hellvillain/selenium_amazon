@@ -1,3 +1,4 @@
+import time
 import re
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -17,10 +18,7 @@ class BasePage:
         return WebDriverWait(self.driver, time).until(method(locator), message=f"Element not found: {locator}")
 
 
-class Pages(BasePage):
-    def __init__(self, driver):
-        self.driver = driver
-
+class LoginPage(BasePage):
     def login(self):
         self.driver.find_element(*CaseLocators.SIGN_IN_BUTTON).click()
         self.wait_element(CaseLocators.SIGN_IN_EMAIL).send_keys(Constants.USERNAME)
@@ -36,10 +34,12 @@ class Pages(BasePage):
         self.driver.find_element(*CaseLocators.GIFT_CARDS_ALL).click()
         self.driver.find_element(*CaseLocators.GIFT_CARDS_BIRTHDAY).click()
         self.driver.find_element(*CaseLocators.GIFT_EGIFT_CATEGORY).click()
+        self.driver.find_element(*CaseLocators.GIFT_BIRTHDAY_CARD).click()
+        self.driver.find_element(*CaseLocators.GIFT_STANDARD_DESIGN)
 
+
+class GiftCardPage(BasePage):
     def specify_gift_card(self):
-        self.driver.find_element(*CaseLocators.CARD_BIRTHDAY_CARD).click()
-        self.driver.find_element(*CaseLocators.CARD_STANDARD_DESIGN)
         self.driver.find_element(*CaseLocators.CARD_DESIGN_MORE).click()
         self.wait_element(CaseLocators.CARD_PARTY_ANIMALS_DESIGN).click()
         self.driver.find_element(*CaseLocators.CARD_USE_THAT_BUTTON).click()
@@ -54,6 +54,8 @@ class Pages(BasePage):
         self.driver.find_element(*CaseLocators.CARD_ADD_TO_CARD).click()
         self.driver.find_element(*CaseLocators.CARD_TO_CHECKOUT).click()
 
+
+class OrderPage(BasePage):
     def review_your_order(self):
         return (
             self.driver.find_element(*CaseLocators.ORDER_CLICK_TO_PAY).is_displayed(),
