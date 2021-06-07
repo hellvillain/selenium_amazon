@@ -19,6 +19,9 @@ class BasePage:
 
 
 class LoginPage(BasePage):
+    """
+    Login to the page and choose desired card category.
+    """
     def login(self):
         self.driver.find_element(*CaseLocators.SIGN_IN_BUTTON).click()
         self.wait_element(CaseLocators.SIGN_IN_EMAIL).send_keys(Constants.USERNAME)
@@ -39,6 +42,9 @@ class LoginPage(BasePage):
 
 
 class GiftCardPage(BasePage):
+    """
+        Specify gift card parameters for further purchase.
+    """
     def specify_gift_card(self):
         self.driver.find_element(*CaseLocators.CARD_DESIGN_MORE).click()
         self.wait_element(CaseLocators.CARD_PARTY_ANIMALS_DESIGN).click()
@@ -56,6 +62,9 @@ class GiftCardPage(BasePage):
 
 
 class OrderPage(BasePage):
+    """
+        Review the order and verify its correctness.
+    """
     def review_your_order(self):
         return (
             self.driver.find_element(*CaseLocators.ORDER_CLICK_TO_PAY).is_displayed(),
